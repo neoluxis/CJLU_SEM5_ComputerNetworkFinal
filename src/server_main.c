@@ -80,7 +80,8 @@ void *handle_client(void *arg) {
     while ((str_len = read(clnt_sock, message, BUF_SIZE)) != 0) {
         message[str_len] = 0;
         printf("Received from client: %s", message);
-        write(clnt_sock, message, str_len);  // 回传相同信息给客户端
+	
+        write(clnt_sock, message, str_len);  
     }
 
     pthread_mutex_lock(&mutex);
